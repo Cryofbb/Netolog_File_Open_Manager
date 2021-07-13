@@ -10,16 +10,12 @@ public class FileOpenManager {
         manager.put(extension.toLowerCase(), app);
     }
 
-    public Set<Map.Entry<String, String>> showAll() {
-        return manager.entrySet();
-    }
-
     public String getApp(String extension) {
-        return manager.get(extension);
+        return manager.get(extension.toLowerCase());
     }
 
-    public void removeValue(String app) {
-        manager.remove(app);
+    public void removeValue(String extension) {
+        manager.remove(extension.toLowerCase());
     }
 
     public Set<String> getExtensions() {
@@ -33,7 +29,7 @@ public class FileOpenManager {
         return pairedExt;
     }
 
-    public List<String> getApps() {
+    public Set<String> getApps() {
         Set<String> extensions = this.getExtensions();
         List<String> pairedApps = new ArrayList();
         for (String extension : extensions) {
@@ -42,6 +38,7 @@ public class FileOpenManager {
                 Collections.sort(pairedApps);
             }
         }
-        return pairedApps;
+        Set<String> tmp = new HashSet<String>(pairedApps);
+        return tmp;
     }
 }
