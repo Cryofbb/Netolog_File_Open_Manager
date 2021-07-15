@@ -18,27 +18,33 @@ public class FileOpenManager {
         manager.remove(extension.toLowerCase());
     }
 
+//    public Set<String> getExtensions() {
+//        Set<String> extensions = manager.keySet();
+//        Set<String> pairedExt = new HashSet<>();
+//        for (String extension : extensions) {
+//            if (manager.get(extension).length() != 0) {
+//                pairedExt.add(extension);
+//            }
+//        }
+//        return pairedExt;
+//    }
     public Set<String> getExtensions() {
-        Set<String> extensions = manager.keySet();
-        Set<String> pairedExt = new HashSet<>();
-        for (String extension : extensions) {
-            if (manager.get(extension).length() != 0) {
-                pairedExt.add(extension);
-            }
-        }
-        return pairedExt;
+        return manager.keySet();
+    }
+    public Set<String> getApps() {
+        return new HashSet<>(manager.values());
     }
 
-    public Set<String> getApps() {
-        Set<String> extensions = this.getExtensions();
-        List<String> pairedApps = new ArrayList();
-        for (String extension : extensions) {
-            if (manager.get(extension).length() != 0) {
-                pairedApps.addAll(Collections.singleton(manager.get(extension)));
-                Collections.sort(pairedApps);
-            }
-        }
-        Set<String> tmp = new HashSet<String>(pairedApps);
-        return tmp;
-    }
+//    public Set<String> getApps() {
+//        Set<String> extensions = this.getExtensions();
+//        List<String> pairedApps = new ArrayList();
+//        for (String extension : extensions) {
+//            if (manager.get(extension).length() != 0) {
+//                pairedApps.addAll(Collections.singleton(manager.get(extension)));
+//                Collections.sort(pairedApps);
+//            }
+//        }
+//        Set<String> tmp = new HashSet<String>(pairedApps);
+//        return tmp;
+//    }
 }

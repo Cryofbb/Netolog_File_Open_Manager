@@ -17,7 +17,6 @@ class FileOpenManagerTest {
         manager.addNew(".JPG", "IMG Viewer");
         manager.addNew(".pNg", "IMG Viewer");
         manager.addNew(".jar", "Winrar");
-        manager.addNew(".psd","");
         manager.addNew(".txt", "Excel");
         manager.addNew(".iso", "ISO");
     }
